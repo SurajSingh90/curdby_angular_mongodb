@@ -1,0 +1,57 @@
+<form>
+    <div class="form-group">
+        <label >name</label>
+        <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}"  class="form-control"  aria-describedby="emailHelp" placeholder="Enter name">
+
+      </div>
+    <div class="form-group">
+        <label >last  name</label>
+        <input type="text" [(ngModel)]="lastname" [ngModelOptions]="{standalone: true}"  class="form-control"  aria-describedby="emailHelp" placeholder="Enter name">
+
+     </div>
+    <div class="form-group">
+      <label >Email address</label>
+      <input type="email" [(ngModel)]="gmail" [ngModelOptions]="{standalone: true}"  class="form-control"  aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label >Phone</label>
+      <input type="text" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}"  class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+   
+    <button type="submit" (click)="save()" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+<div class="container mt-4" >
+  <h1>users Table</h1>
+  <table class="table">
+    <thead>    
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">lastname</th>
+        <th scope="col">Phone</th>  
+        <th scope="col">gmail</th>
+        <th scope="col">Option</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usertitem of useraray">
+        <td>{{usertitem.name| uppercase}}</td>
+        <td>{{usertitem.gmail}}</td>
+        <td>{{usertitem.phone }}</td>
+        <td>{{usertitem.lastname }}</td>
+      
+        <td>
+          <button type="button" class="btn btn-success" (click)="setdata(usertitem)">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="setdelete(usertitem,usertitem)">Delete</button>    
+         
+        </td>
+      
+      </tr>      
+   
+    </tbody>
+  </table>
+   
+</div>
